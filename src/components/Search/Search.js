@@ -31,12 +31,12 @@ class Search extends Component {
             render={({submitForm, isSubmitting, values, setFieldValue}) => (
                 <Form className={classes.root}>
                   <div className={classes.container}>
-                    <FormControl>
+                    <FormControl className={classes.inputContainer}>
                       <Grid container spacing={8} alignItems="flex-end">
                         <Grid item>
                           <SearchIcon/>
                         </Grid>
-                        <Grid item>
+                        <Grid item  className={classes.grow}>
                           <div className={classes.search}>
                             <Field
                                 type="text"

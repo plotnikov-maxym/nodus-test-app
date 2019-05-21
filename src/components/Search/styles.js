@@ -5,9 +5,15 @@ export const styles = ({shape, palette, spacing, breakpoints, transitions}) => (
     width: '100%',
     padding: spacing.unit * 2,
   },
+  grow: {
+    flexGrow: 1,
+  },
   container: {
     display: 'flex',
     alignItems: 'center',
+  },
+  inputContainer: {
+    minWidth: '50%',
   },
   search: {
     position: 'relative',
@@ -17,7 +23,7 @@ export const styles = ({shape, palette, spacing, breakpoints, transitions}) => (
     },
     marginLeft: 0,
     width: '100%',
-    minWidth: 300,
+
   },
   button: {
     marginLeft: spacing.unit * 2,
