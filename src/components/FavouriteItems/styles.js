@@ -4,6 +4,11 @@ export const styles = ({spacing: {unit}}) => ({
     flexDirection: 'column',
     alignItems: 'flex-start',
   },
+  flexRow: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   formControl: {
     margin: unit * 3,
   },
@@ -12,5 +17,8 @@ export const styles = ({spacing: {unit}}) => ({
   },
   button: {
     margin: `${unit * 2}px 0 0`,
+  },
+  deleteButton: {
+    marginLeft: unit * 2,
   },
 });
