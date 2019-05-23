@@ -1,31 +1,28 @@
-import {fade} from '@material-ui/core/styles/colorManipulator';
+import {fade} from "@material-ui/core/styles/colorManipulator";
 
-export const styles = ({shape, palette, spacing, breakpoints, transitions}) => ({
+export const styles = ({palette, spacing: {unit}}) => ({
   root: {
-    width: '100%',
-    padding: spacing.unit * 2,
+    padding: unit * 3,
   },
   grow: {
     flexGrow: 1,
   },
   container: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
   },
   inputContainer: {
-    minWidth: '50%',
+    minWidth: "50%",
+    marginRight: unit * 2,
   },
   search: {
-    position: 'relative',
+    width: "100%",
     backgroundColor: fade(palette.common.white, 0.15),
-    '&:hover': {
+    "&:hover": {
       backgroundColor: fade(palette.common.white, 0.25),
     },
-    marginLeft: 0,
-    width: '100%',
-
   },
   button: {
-    marginLeft: spacing.unit * 2,
+    marginLeft: unit * 2,
   },
 });
