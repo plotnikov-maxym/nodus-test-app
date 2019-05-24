@@ -18,12 +18,12 @@ describe("ADD_TO_FAVOURITES reducer", () => {
   });
 
   it("return the proper state for a ADD_TO_FAVOURITES action type", () => {
-    const article = {id: 5, name: "test"};
+    const query = {id: 5123, value: "test"};
     const newState = favouritesReducer(undefined, {
       type: ADD_TO_FAVOURITES,
-      article,
+      query,
     });
-    expect(newState).toEqual({5: "test"});
+    expect(newState).toEqual({5123: "test"});
   });
 });
 
@@ -43,7 +43,7 @@ describe("REMOVE_FROM_FAVOURITES reducer", () => {
   });
 
   it("return the proper state for a ADD_TO_FAVOURITES action type", () => {
-    const article = {name: "test"};
+    const article = {value: "test"};
     const newState = favouritesReducer(undefined, {
       type: REMOVE_FROM_FAVOURITES,
       article,

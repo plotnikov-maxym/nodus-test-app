@@ -14,7 +14,7 @@ describe("action navigation", () => {
       .then(() => {
         expect(dispatchFake).toHaveBeenCalledWith(clearNotification);
       })
-      .catch(error => {});
+      .catch(() => {});
     expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 3000);
     jest.runAllTimers();
   });

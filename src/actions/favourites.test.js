@@ -8,11 +8,11 @@ describe("addToFavourites tests", () => {
     );
   });
 
-  it("has article", () => {
-    expect(addToFavourites("articleOne")).toEqual(
+  it("has query", () => {
+    expect(addToFavourites({id: 232, value: "query"})).toEqual(
       expect.objectContaining({
         type: "ADD_TO_FAVOURITES",
-        article: "articleOne",
+        query: {id: 232, value: "query"},
       }),
     );
   });
@@ -25,7 +25,7 @@ describe("removeFromFavourites tests", () => {
     );
   });
 
-  it("has article", () => {
+  it("has query", () => {
     expect(removeFromFavourites(5)).toEqual(
       expect.objectContaining({
         type: "REMOVE_FROM_FAVOURITES",

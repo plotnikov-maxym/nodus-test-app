@@ -2,10 +2,12 @@ import React, {Component} from "react";
 import {object, func} from "prop-types";
 import {Formik, Field, Form} from "formik";
 import {TextField} from "formik-material-ui";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import FormControl from "@material-ui/core/FormControl";
-import SearchIcon from "@material-ui/icons/Search";
 import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import FormControl from "@material-ui/core/FormControl";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import SearchIcon from "@material-ui/icons/Search";
+import CloseIcon from "@material-ui/icons/Close";
 import {withStyles} from "@material-ui/core/styles";
 import {locale} from "../../constants/locales";
 import {styles} from "./styles";
@@ -15,10 +17,23 @@ class Search extends Component {
     value: "",
   };
 
+  handleAddToFavorites = value => {
+    if (value.length > 1) {
+      const {addToFavourites} = this.props;
+      const id = value.replace(/\s+/g, "");
+      addToFavourites({id, value});
+    }
+  };
+
+  handleClearInput = reset => {
+    this.setState({value: ""});
+    reset();
+  };
+
   handleSubmit = async (values, {setSubmitting}) => {
     const {fetchArticles} = this.props;
     setSubmitting(false);
-    console.log(values.search);
+    // console.log(values.search);
     this.setState({value: values.search});
     await fetchArticles(values.search);
   };
@@ -33,30 +48,40 @@ class Search extends Component {
           search: value,
         }}
         onSubmit={this.handleSubmit}
-        render={({values}) => (
+        render={({values, handleChange, resetForm}) => (
           <Form className={classes.root}>
             <div className={classes.container}>
               <FormControl className={classes.inputContainer}>
-                <div className={classes.search}>
-                  <Field
-                    value={values.search}
-                    type="text"
-                    label={locale.SEARCH_IN_PUBMED}
-                    placeholder={locale.SEARCH}
-                    name="search"
-                    component={TextField}
-                    margin="none"
-                    variant="outlined"
-                    fullWidth
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <SearchIcon />
-                        </InputAdornment>
-                      ),
-                    }}
-                  />
-                </div>
+                <Field
+                  className={classes.search}
+                  component={TextField}
+                  value={values.search}
+                  type="text"
+                  label={locale.SEARCH_IN_PUBMED}
+                  placeholder={locale.SEARCH}
+                  name="search"
+                  margin="none"
+                  variant="outlined"
+                  onChange={handleChange}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <SearchIcon />
+                      </InputAdornment>
+                    ),
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          edge="end"
+                          aria-label="Toggle password visibility"
+                          onClick={() => this.handleClearInput(resetForm)}
+                        >
+                          <CloseIcon />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
               </FormControl>
 
               <Button
@@ -72,6 +97,7 @@ class Search extends Component {
                 variant="contained"
                 color="primary"
                 className={classes.button}
+                onClick={() => this.handleAddToFavorites(values.search)}
               >
                 {locale.ADD_TO_FAVOURITES}
               </Button>

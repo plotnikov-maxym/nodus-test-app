@@ -31,15 +31,16 @@ describe("Articles actions tests", () => {
       errorNotification.mockClear();
     });
 
-    it("calls fetch agency branches function", () => {
+    it("calls fetch articles function", () => {
       invokeFetchArticles(null);
       expect(pubmed.search).toHaveBeenCalled();
     });
 
-    it("passes query to fetch agency branches function", () => {
+    it("passes query to fetch articles function", () => {
       const query = "testQuery";
+      const range = [0, 10];
       invokeFetchArticles(query);
-      expect(pubmed.search).toHaveBeenCalledWith(query);
+      expect(pubmed.search).toHaveBeenCalledWith(query, ...range);
     });
 
     it("dispatches error notification on service failure", async () => {
