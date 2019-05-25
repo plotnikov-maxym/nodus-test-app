@@ -12,7 +12,7 @@ import {withStyles} from "@material-ui/core/styles";
 import {locale} from "../../constants/locales";
 import {styles} from "./styles";
 
-class Search extends Component {
+export class Search extends Component {
   state = {
     value: "",
   };
@@ -20,7 +20,7 @@ class Search extends Component {
   handleAddToFavorites = value => {
     if (value.length > 1) {
       const {addToFavourites} = this.props;
-      const id = value.replace(/\s+/g, "");
+      const id = value.replace(/[^\w\s]/gi, "");
       addToFavourites({id, value});
     }
   };
@@ -33,7 +33,6 @@ class Search extends Component {
   handleSubmit = async (values, {setSubmitting}) => {
     const {fetchArticles} = this.props;
     setSubmitting(false);
-    // console.log(values.search);
     this.setState({value: values.search});
     await fetchArticles(values.search);
   };
@@ -71,13 +70,15 @@ class Search extends Component {
                     ),
                     endAdornment: (
                       <InputAdornment position="end">
-                        <IconButton
-                          edge="end"
-                          aria-label="Toggle password visibility"
-                          onClick={() => this.handleClearInput(resetForm)}
-                        >
-                          <CloseIcon />
-                        </IconButton>
+                        {values.search.length > 0 && (
+                          <IconButton
+                            edge="end"
+                            aria-label="Toggle password visibility"
+                            onClick={() => this.handleClearInput(resetForm)}
+                          >
+                            <CloseIcon />
+                          </IconButton>
+                        )}
                       </InputAdornment>
                     ),
                   }}
@@ -112,6 +113,7 @@ class Search extends Component {
 Search.propTypes = {
   classes: object.isRequired,
   fetchArticles: func.isRequired,
+  addToFavourites: func.isRequired,
 };
 
 export default withStyles(styles)(Search);

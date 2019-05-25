@@ -8,7 +8,6 @@ import Articles from "./components/Articles";
 // Utils
 import store from "./utils/store/store";
 // Constants
-import {ITEMS} from "./constants/forms";
 import {locale} from "./constants/locales";
 import "./App.css";
 
@@ -18,7 +17,7 @@ function App() {
       <div>
         <TopBar heading={locale.WELCOME} />
         <Search />
-        <FavouriteItems heading={locale.FAVOURITE_ITEMS} items={ITEMS} />
+        <FavouriteItems heading={locale.FAVOURITE_ITEMS} />
         <Articles />
       </div>
     </Provider>

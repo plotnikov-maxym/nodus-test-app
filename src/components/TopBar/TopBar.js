@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import {styles} from "./styles";
 import {withStyles} from "@material-ui/core/styles";
 
-const TopBar = ({classes, heading}) => {
+export const TopBar = ({classes, heading}) => {
   return (
     <div className={classes.root}>
       <AppBar position="static" color="primary">

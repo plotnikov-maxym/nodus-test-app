@@ -17,13 +17,26 @@ describe("ADD_TO_FAVOURITES reducer", () => {
     expect(newState).toEqual({});
   });
 
-  it("return the proper state for a ADD_TO_FAVOURITES action type", () => {
+  it("return the proper state for an ADD_TO_FAVOURITES action type", () => {
     const query = {id: 5123, value: "test"};
     const newState = favouritesReducer(undefined, {
       type: ADD_TO_FAVOURITES,
       query,
     });
     expect(newState).toEqual({5123: "test"});
+  });
+
+  it("doesn't change state if same object is provided for ADD_TO_FAVOURITES action type", () => {
+    const query = {id: 5123, value: "test"};
+    const mockState = {
+      5123: "test",
+      122: "test2",
+    };
+    const newState = favouritesReducer(mockState, {
+      type: ADD_TO_FAVOURITES,
+      query,
+    });
+    expect(newState).toEqual(mockState);
   });
 });
 

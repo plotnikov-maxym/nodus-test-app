@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {object} from "prop-types";
+import {func, object, objectOf, string} from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import Radio from "@material-ui/core/Radio";
 import FormControl from "@material-ui/core/FormControl";
@@ -11,7 +11,7 @@ import {withStyles} from "@material-ui/core/styles";
 import {locale} from "../../constants/locales";
 import {styles} from "./styles";
 
-class FavouriteItems extends Component {
+export class FavouriteItems extends Component {
   state = {
     value: "",
   };
@@ -28,12 +28,17 @@ class FavouriteItems extends Component {
   };
 
   deleteItem = index => {
-    const {removeFromFavourites} = this.props;
+    const {favourites, removeFromFavourites} = this.props;
+    const {value} = this.state;
+    if (value === favourites[index]) {
+      this.setState({value: ""});
+    }
     removeFromFavourites(index);
   };
 
   render() {
     const {classes, heading, favourites} = this.props;
+
     if (!Object.keys(favourites).length) {
       return (
         <div className={classes.root}>
@@ -60,41 +65,44 @@ class FavouriteItems extends Component {
           <Typography variant="h5" gutterBottom>
             {heading}
           </Typography>
-          <FormControl component="fieldset">
-            {Object.entries(favourites).map(([key, value]) => {
-              return (
-                <div className={classes.flexRow} key={key}>
-                  <FormControlLabel
-                    label={value}
-                    control={
-                      <Radio
-                        checked={this.state.value === value}
-                        onChange={this.handleChange}
-                        value={value}
-                        name={value}
-                        aria-label={key}
-                      />
-                    }
-                  />
-                  <IconButton
-                    className={classes.deleteButton}
-                    aria-label="Delete"
-                    onClick={() => this.deleteItem(key)}
-                  >
-                    <DeleteIcon />
-                  </IconButton>
-                </div>
-              );
-            })}
+          <div className={classes.flexColumn}>
+            <FormControl component="fieldset">
+              {Object.entries(favourites).map(([key, value]) => {
+                return (
+                  <div className={classes.flexRow} key={key}>
+                    <FormControlLabel
+                      label={value}
+                      control={
+                        <Radio
+                          checked={this.state.value === value}
+                          onChange={this.handleChange}
+                          value={value}
+                          name={value}
+                          aria-label={key}
+                        />
+                      }
+                    />
+                    <IconButton
+                      className={classes.deleteButton}
+                      aria-label="Delete"
+                      onClick={() => this.deleteItem(key)}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                  </div>
+                );
+              })}
+            </FormControl>
             <Button
               type="submit"
               variant="contained"
               color="primary"
               className={classes.button}
+              disabled={!this.state.value.length}
             >
               {locale.SEARCH}
             </Button>
-          </FormControl>
+          </div>
         </div>
       </form>
     );
@@ -102,7 +110,11 @@ class FavouriteItems extends Component {
 }
 
 FavouriteItems.propTypes = {
-  classes: object.isRequired,
+  classes: object,
+  heading: string.isRequired,
+  favourites: objectOf(string).isRequired,
+  removeFromFavourites: func.isRequired,
+  fetchArticles: func.isRequired,
 };
 
 export default withStyles(styles)(FavouriteItems);

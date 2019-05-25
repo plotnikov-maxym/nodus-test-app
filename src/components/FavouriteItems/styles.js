@@ -9,6 +9,11 @@ export const styles = ({spacing: {unit}}) => ({
     flexDirection: "row",
     alignItems: "center",
   },
+  flexColumn: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+  },
   formControl: {
     margin: unit * 3,
   },

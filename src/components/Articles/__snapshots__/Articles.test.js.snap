@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Articles /> Articles component matches snapshot if no Articles provided 1`] = `
+<div
+  className="Articles-root-195"
+>
+  <span
+    className="MuiTypography-root-1 MuiTypography-button-12 MuiTypography-gutterBottom-28"
+  >
+    No matches found.
+  </span>
+</div>
+`;
+
+exports[`<Articles /> Articles component matches snapshot with Articles provided 1`] = `
+<div
+  className="Articles-root-195"
+>
+  <div
+    className="Articles-group-199"
+  >
+    <div
+      className="MuiPaper-root-37 MuiPaper-elevation2-41 MuiPaper-rounded-38 Articles-card-198"
+    >
+      <div
+        className="Articles-flexColumn-197"
+      >
+        <h6
+          className="MuiTypography-root-1 MuiTypography-h6-18 MuiTypography-gutterBottom-28"
+        >
+          Effect of Preoperative Opioid Use on Adversplasty in the United States
+        </h6>
+        <h6
+          className="MuiTypography-root-1 MuiTypography-subtitle1-19"
+          display="inline"
+        >
+          Blevins Peratikos M, Weeks HL, Pisansky AJB, Yong RJ, Stringer EA
+        </h6>
+        <h6
+          className="MuiTypography-root-1 MuiTypography-subtitle2-20"
+          display="inline"
+        >
+          Pain Med
+           (
+          2019 May 23
+          )
+        </h6>
+      </div>
+    </div>
+  </div>
+</div>
+`;

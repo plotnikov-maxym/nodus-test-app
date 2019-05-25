@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FavouritesItems /> FavouritesItems component matches snapshot if no FavouritesItems provided 1`] = `
+<div
+  className="FavouriteItems-root-188"
+>
+  <div
+    className="FavouriteItems-formControl-190"
+  >
+    <h5
+      className="MuiTypography-root-1 MuiTypography-h5-17 MuiTypography-gutterBottom-28"
+    >
+      My Test Heading
+    </h5>
+    <p
+      className="MuiTypography-root-1 MuiTypography-body1-10 MuiTypography-gutterBottom-28"
+    >
+      You don't have any favourites at the moment. You can add them at anytime.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`<FavouritesItems /> FavouritesItems component matches snapshot with FavouritesItems provided 1`] = `
+<form
+  autoComplete="off"
+  className="FavouriteItems-root-188"
+  noValidate={true}
+  onSubmit={[Function]}
+>
+  <div
+    className="FavouriteItems-formControl-190"
+  >
+    <h5
+      className="MuiTypography-root-1 MuiTypography-h5-17 MuiTypography-gutterBottom-28"
+    >
+      My Test Heading
+    </h5>
+    <div>
+      <fieldset
+        className="MuiFormControl-root-37"
+      >
+        <div
+          className="FavouriteItems-flexRow-189"
+        >
+          <label
+            className="MuiFormControlLabel-root-41"
+          >
+            <span
+              aria-label="MySearchQuery"
+              className="MuiButtonBase-root-62 MuiIconButton-root-56 MuiPrivateSwitchBase-root-52 MuiRadio-root-47 MuiRadio-colorSecondary-51"
+              onBlur={[Function]}
+              onContextMenu={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={null}
+            >
+              <span
+                className="MuiIconButton-label-61"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="MuiSvgIcon-root-65"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                  />
+                </svg>
+                <input
+                  checked={false}
+                  className="MuiPrivateSwitchBase-input-55"
+                  disabled={false}
+                  name="My Search Query"
+                  onChange={[Function]}
+                  type="radio"
+                  value="My Search Query"
+                />
+              </span>
+              <span
+                className="MuiTouchRipple-root-100"
+              />
+            </span>
+            <span
+              className="MuiTypography-root-1 MuiTypography-body1-10 MuiFormControlLabel-label-46"
+            >
+              My Search Query
+            </span>
+          </label>
+          <button
+            aria-label="Delete"
+            className="MuiButtonBase-root-62 MuiIconButton-root-56 FavouriteItems-deleteButton-193"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="MuiIconButton-label-61"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root-65"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+                <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+              </svg>
+            </span>
+            <span
+              className="MuiTouchRipple-root-100"
+            />
+          </button>
+        </div>
+        <div
+          className="FavouriteItems-flexRow-189"
+        >
+          <label
+            className="MuiFormControlLabel-root-41"
+          >
+            <span
+              aria-label="AnotherTestQueryTest"
+              className="MuiButtonBase-root-62 MuiIconButton-root-56 MuiPrivateSwitchBase-root-52 MuiRadio-root-47 MuiRadio-colorSecondary-51"
+              onBlur={[Function]}
+              onContextMenu={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={null}
+            >
+              <span
+                className="MuiIconButton-label-61"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="MuiSvgIcon-root-65"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                  />
+                </svg>
+                <input
+                  checked={false}
+                  className="MuiPrivateSwitchBase-input-55"
+                  disabled={false}
+                  name="Another Test Query - Tessss"
+                  onChange={[Function]}
+                  type="radio"
+                  value="Another Test Query - Tessss"
+                />
+              </span>
+              <span
+                className="MuiTouchRipple-root-100"
+              />
+            </span>
+            <span
+              className="MuiTypography-root-1 MuiTypography-body1-10 MuiFormControlLabel-label-46"
+            >
+              Another Test Query - Tessss
+            </span>
+          </label>
+          <button
+            aria-label="Delete"
+            className="MuiButtonBase-root-62 MuiIconButton-root-56 FavouriteItems-deleteButton-193"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="MuiIconButton-label-61"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root-65"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+                <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+              </svg>
+            </span>
+            <span
+              className="MuiTouchRipple-root-100"
+            />
+          </button>
+        </div>
+      </fieldset>
+      <button
+        className="MuiButtonBase-root-62 MuiButtonBase-disabled-63 MuiButton-root-74 MuiButton-contained-85 MuiButton-containedPrimary-86 MuiButton-raised-88 MuiButton-raisedPrimary-89 MuiButton-disabled-94 FavouriteItems-button-192"
+        disabled={true}
+        onBlur={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="-1"
+        type="submit"
+      >
+        <span
+          className="MuiButton-label-75"
+        >
+          Search
+        </span>
+      </button>
+    </div>
+  </div>
+</form>
+`;

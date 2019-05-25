@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TopBar /> TopBar component matches snapshot 1`] = `
+<div
+  className="root"
+>
+  <header
+    className="MuiPaper-root-10 MuiPaper-elevation4-16 MuiAppBar-root-1 MuiAppBar-positionStatic-5 MuiAppBar-colorPrimary-8"
+  >
+    <div
+      className="MuiToolbar-root-37 MuiToolbar-regular-39 MuiToolbar-gutters-38"
+    >
+      <h5
+        className="MuiTypography-root-41 MuiTypography-h5-57 MuiTypography-colorInherit-70 MuiTypography-noWrap-67"
+      >
+        My Test Heading
+      </h5>
+      <div
+        className="grow"
+      />
+    </div>
+  </header>
+</div>
+`;
