@@ -3,9 +3,9 @@
 Created with `create-react-app`.
 Uses `Material-UI` for styling and `node-ncbi` for fetching and parsing date from PubMed API.
 
-##Toolset
+## Toolset
 
-###Libraries:
+### Libraries:
 - react: `^16.8.6`
 - react-redux: `^7.0.3`
 - redux: `^4.0.1`
