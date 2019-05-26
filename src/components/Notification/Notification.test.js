@@ -29,7 +29,9 @@ describe("<Notification />", () => {
         notification.message,
       );
       const {classes} = getMockProps();
-      expect(wrapper.find("div").prop("className")).toEqual(classes.error);
+      expect(wrapper.find("div").prop("className")).toEqual(
+        `${classes.notification} ${classes.error}`,
+      );
     });
 
     it("does not renders if notification prop is absent", async () => {

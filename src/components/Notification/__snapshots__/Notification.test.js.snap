@@ -2,7 +2,7 @@
 
 exports[`<Notification /> Notification component matches snapshot 1`] = `
 <div
-  className="info-124"
+  className="notification-121 info-124"
 >
   <p
     className="MuiTypography-root-1 MuiTypography-body1-10 text-123"
