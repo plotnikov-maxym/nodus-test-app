@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Notification /> Notification component matches snapshot 1`] = `
+<div
+  className="info-124"
+>
+  <p
+    className="MuiTypography-root-1 MuiTypography-body1-10 text-123"
+  >
+    Test Message
+  </p>
+</div>
+`;

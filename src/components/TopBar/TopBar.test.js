@@ -4,8 +4,7 @@ import {extend} from "underscore";
 import {TopBar} from "./TopBar";
 import {createShallow} from "@material-ui/core/test-utils";
 import Typography from "@material-ui/core/Typography";
-
-// Mocks
+import Preloader from "../Preloader";
 
 describe("<TopBar />", () => {
   let shallow;
@@ -25,6 +24,12 @@ describe("<TopBar />", () => {
       const wrapper = await getComponent({heading});
       expect(wrapper.find(Typography)).toExist();
       expect(wrapper.find(Typography).props().children).toEqual(heading);
+    });
+
+    it("renders the Preloader is isLoading passed", async () => {
+      const isLoading = true;
+      const wrapper = await getComponent({isLoading});
+      expect(wrapper.find(Preloader)).toExist();
     });
   });
 
@@ -46,5 +51,6 @@ describe("<TopBar />", () => {
       grow: "grow",
     },
     heading: "My Test Heading",
+    isLoading: false
   });
 });

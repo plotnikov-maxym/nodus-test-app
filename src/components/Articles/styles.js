@@ -21,6 +21,7 @@ export const styles = ({spacing: {unit}, palette}) => ({
   },
   group: {
     margin: `${unit}px 0`,
+    width: "100%",
   },
   date: {
     color: palette.grey.A200,

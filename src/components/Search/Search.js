@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {object, func} from "prop-types";
-import {Formik, Field, Form} from "formik";
-import {TextField} from "formik-material-ui";
+import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import FormControl from "@material-ui/core/FormControl";
@@ -17,24 +16,28 @@ export class Search extends Component {
     value: "",
   };
 
-  handleAddToFavorites = value => {
+  handleAddToFavorites = () => {
+    const {value} = this.state;
     if (value.length > 1) {
       const {addToFavourites} = this.props;
-      const id = value.replace(/[^\w\s]/gi, "");
+      const id = value.replace(/[^\w\s]/gi, "").replace(" ", "_");
       addToFavourites({id, value});
     }
   };
 
-  handleClearInput = reset => {
+  handleClearInput = () => {
     this.setState({value: ""});
-    reset();
   };
 
-  handleSubmit = async (values, {setSubmitting}) => {
+  handleChange = event => {
+    this.setState({value: event.target.value});
+  };
+
+  handleSubmit = async event => {
+    event.preventDefault();
     const {fetchArticles} = this.props;
-    setSubmitting(false);
-    this.setState({value: values.search});
-    await fetchArticles(values.search);
+    const {value} = this.state;
+    await fetchArticles(value);
   };
 
   render() {
@@ -42,70 +45,65 @@ export class Search extends Component {
     const {value} = this.state;
 
     return (
-      <Formik
-        initialValues={{
-          search: value,
-        }}
+      <form
+        className={classes.root}
         onSubmit={this.handleSubmit}
-        render={({values, handleChange, resetForm}) => (
-          <Form className={classes.root}>
-            <div className={classes.container}>
-              <FormControl className={classes.inputContainer}>
-                <Field
-                  className={classes.search}
-                  component={TextField}
-                  value={values.search}
-                  type="text"
-                  label={locale.SEARCH_IN_PUBMED}
-                  placeholder={locale.SEARCH}
-                  name="search"
-                  margin="none"
-                  variant="outlined"
-                  onChange={handleChange}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <SearchIcon />
-                      </InputAdornment>
-                    ),
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        {values.search.length > 0 && (
-                          <IconButton
-                            edge="end"
-                            aria-label="Toggle password visibility"
-                            onClick={() => this.handleClearInput(resetForm)}
-                          >
-                            <CloseIcon />
-                          </IconButton>
-                        )}
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </FormControl>
+        noValidate
+      >
+        <div className={classes.container}>
+          <FormControl className={classes.inputContainer}>
+            <TextField
+              className={classes.search}
+              value={value}
+              type="text"
+              label={locale.SEARCH_IN_PUBMED}
+              placeholder={locale.SEARCH}
+              name="search"
+              margin="none"
+              variant="outlined"
+              onChange={this.handleChange}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+                endAdornment: (
+                  <InputAdornment position="end">
+                    {value.length > 0 && (
+                      <IconButton
+                        edge="end"
+                        aria-label="Toggle password visibility"
+                        onClick={this.handleClearInput}
+                      >
+                        <CloseIcon />
+                      </IconButton>
+                    )}
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </FormControl>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            className={classes.button}
+          >
+            {locale.SEARCH}
+          </Button>
 
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                className={classes.button}
-              >
-                {locale.SEARCH}
-              </Button>
-
-              <Button
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                onClick={() => this.handleAddToFavorites(values.search)}
-              >
-                {locale.ADD_TO_FAVOURITES}
-              </Button>
-            </div>
-          </Form>
-        )}
-      />
+          <Button
+            type="button"
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            onClick={this.handleAddToFavorites}
+          >
+            {locale.ADD_TO_FAVOURITES}
+          </Button>
+        </div>
+      </form>
     );
   }
 }

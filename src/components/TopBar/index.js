@@ -1,2 +1,7 @@
+import {connect} from "react-redux";
 import TopBar from "./TopBar";
-export default TopBar;
+
+const mapStateToProps = state => ({
+  isLoading: state.loading && state.loading.show,
+});
+export default connect(mapStateToProps)(TopBar);

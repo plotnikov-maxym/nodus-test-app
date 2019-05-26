@@ -22,7 +22,7 @@ export const Articles = ({classes, articles}) => {
       <div className={classes.group}>
         {articles.map(item => {
           return (
-            <Paper className={classes.card} key={item.pmid}>
+            <Paper elevation={2} className={classes.card} key={item.pmid}>
               <div className={classes.flexColumn}>
                 <Typography variant="h6" gutterBottom>
                   {item.title}

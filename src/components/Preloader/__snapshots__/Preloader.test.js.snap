@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Preloader /> Preloader component matches snapshot 1`] = `
+<div
+  className="root-122"
+>
+  <div
+    className="MuiLinearProgress-root-1 MuiLinearProgress-colorPrimary-2 MuiLinearProgress-indeterminate-5"
+    role="progressbar"
+  >
+    <div
+      className="MuiLinearProgress-bar-11 MuiLinearProgress-barColorPrimary-12 MuiLinearProgress-bar1Indeterminate-14"
+      style={Object {}}
+    />
+    <div
+      className="MuiLinearProgress-bar-11 MuiLinearProgress-barColorPrimary-12 MuiLinearProgress-bar2Indeterminate-17"
+      style={Object {}}
+    />
+  </div>
+</div>
+`;

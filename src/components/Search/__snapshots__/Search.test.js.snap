@@ -3,7 +3,7 @@
 exports[`<Search /> Search component matches snapshot 1`] = `
 <form
   className="Search-root-79"
-  onReset={[Function]}
+  noValidate={true}
   onSubmit={[Function]}
 >
   <div
