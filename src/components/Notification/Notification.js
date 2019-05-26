@@ -13,7 +13,7 @@ export const Notification = ({classes, notification}) => {
 
     if (message) {
       return (
-        <div className={classNames(classes.container, notificationClass)}>
+        <div className={classNames(classes.notification, notificationClass)}>
           {message && (
             <Typography variant="body1" className={classes.text}>
               {message}
