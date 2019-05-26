@@ -47,10 +47,10 @@ describe("<TopBar />", () => {
 
   const getMockProps = () => ({
     classes: {
-      root: "root",
-      grow: "grow",
+      root: "Topbar-root-122",
+      grow: "Topbar-grow-121",
     },
     heading: "My Test Heading",
-    isLoading: false
+    isLoading: false,
   });
 });

@@ -26,7 +26,7 @@ export const TopBar = ({classes, heading, isLoading}) => {
 TopBar.propTypes = {
   classes: object.isRequired,
   heading: string.isRequired,
-  isLoading: bool.isRequired
+  isLoading: bool.isRequired,
 };
 
 export default withStyles(styles)(TopBar);

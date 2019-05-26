@@ -2,7 +2,7 @@
 
 exports[`<Preloader /> Preloader component matches snapshot 1`] = `
 <div
-  className="root-122"
+  className="Preloader-root-122"
 >
   <div
     className="MuiLinearProgress-root-1 MuiLinearProgress-colorPrimary-2 MuiLinearProgress-indeterminate-5"

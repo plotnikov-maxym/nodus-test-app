@@ -55,10 +55,10 @@ describe("<Notification />", () => {
 
   const getMockProps = () => ({
     classes: {
-      notification: "notification-121",
-      error: "error-122",
-      info: "info-124",
-      text: "text-123",
+      notification: "Notification-notification-121",
+      error: "Notification-error-122",
+      info: "Notification-info-124",
+      text: "Notification-text-123",
     },
     notification: {
       type: "info",

@@ -1,8 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import {extend} from "underscore";
-import {Search} from "./Search";
 import {createShallow} from "@material-ui/core/test-utils";
+import {Search} from "./Search";
+import {locale} from "../../constants/locales";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
@@ -61,22 +62,6 @@ describe("<Search />", () => {
       expect(wrapper.state("value")).toBe(searchQuery);
       await expect(fetchArticles).toHaveBeenCalledWith(searchQuery);
     });
-    it("does not adding to favourites if value is less than on character", async () => {
-      const addToFavourites = jest.fn();
-      const searchQuery = "a";
-      const wrapper = await getComponent({addToFavourites});
-      const input = wrapper.find(TextField);
-      const fieldOnChange = input.prop("onChange");
-      fieldOnChange({
-        target: {name: "search", value: searchQuery},
-      });
-      wrapper.update();
-      const addButton = wrapper
-        .find(Button)
-        .findWhere(btn => btn.prop("type") === "button");
-      addButton.simulate("click");
-      await expect(addToFavourites).not.toHaveBeenCalled();
-    });
 
     it("renders add to favourites button and handles adding to favourites function", async () => {
       const addToFavourites = jest.fn();
@@ -95,6 +80,49 @@ describe("<Search />", () => {
       expect(addButton).toExist();
       addButton.simulate("click");
       await expect(addToFavourites).toHaveBeenCalledWith(expectedQuery);
+    });
+
+    it("stops form submission and show notification if query has less than 3 characters", async () => {
+      const infoNotification = jest.fn();
+      const searchQuery = "a";
+      const wrapper = await getComponent({infoNotification});
+      const input = wrapper.find(TextField);
+      const fieldOnChange = input.prop("onChange");
+      fieldOnChange({
+        target: {name: "search", value: searchQuery},
+      });
+      const submitButton = wrapper
+        .find(Button)
+        .findWhere(btn => btn.prop("type") === "submit");
+      expect(submitButton).toExist();
+      const form = wrapper.find("form");
+      form.prop("onSubmit")({
+        preventDefault: () => {},
+      });
+      await expect(infoNotification).toHaveBeenCalledWith(
+        locale.TOO_SHORT_SEARCH_QUERY,
+      );
+    });
+
+    it("does not adding to favourites if value is less than 3 character", async () => {
+      const addToFavourites = jest.fn();
+      const infoNotification = jest.fn();
+      const searchQuery = "a";
+      const wrapper = await getComponent({addToFavourites, infoNotification});
+      const input = wrapper.find(TextField);
+      const fieldOnChange = input.prop("onChange");
+      fieldOnChange({
+        target: {name: "search", value: searchQuery},
+      });
+      wrapper.update();
+      const addButton = wrapper
+        .find(Button)
+        .findWhere(btn => btn.prop("type") === "button");
+      addButton.simulate("click");
+      await expect(infoNotification).toHaveBeenCalledWith(
+        locale.TOO_SHORT_SEARCH_QUERY,
+      );
+      await expect(addToFavourites).not.toHaveBeenCalled();
     });
   });
 
@@ -121,5 +149,6 @@ describe("<Search />", () => {
     },
     fetchArticles: () => {},
     addToFavourites: () => {},
+    infoNotification: () => {},
   });
 });

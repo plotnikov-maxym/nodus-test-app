@@ -2,10 +2,10 @@
 
 exports[`<Notification /> Notification component matches snapshot 1`] = `
 <div
-  className="notification-121 info-124"
+  className="Notification-notification-121 Notification-info-124"
 >
   <p
-    className="MuiTypography-root-1 MuiTypography-body1-10 text-123"
+    className="MuiTypography-root-1 MuiTypography-body1-10 Notification-text-123"
   >
     Test Message
   </p>

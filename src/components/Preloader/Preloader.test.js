@@ -46,7 +46,7 @@ describe("<Preloader />", () => {
 
   const getMockProps = () => ({
     classes: {
-      root: "root-122",
+      root: "Preloader-root-122",
     },
     loading: true,
   });

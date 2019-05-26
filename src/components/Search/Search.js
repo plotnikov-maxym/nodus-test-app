@@ -18,10 +18,14 @@ export class Search extends Component {
 
   handleAddToFavorites = () => {
     const {value} = this.state;
-    if (value.length > 1) {
+    console.log(value);
+    if (value.length > 3) {
       const {addToFavourites} = this.props;
       const id = value.replace(/[^\w\s]/gi, "").replace(" ", "_");
       addToFavourites({id, value});
+    } else {
+      const {infoNotification} = this.props;
+      infoNotification(locale.TOO_SHORT_SEARCH_QUERY);
     }
   };
 
@@ -35,9 +39,14 @@ export class Search extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    const {fetchArticles} = this.props;
     const {value} = this.state;
-    await fetchArticles(value);
+    if (value.length > 3) {
+      const {fetchArticles} = this.props;
+      await fetchArticles(value);
+    } else {
+      const {infoNotification} = this.props;
+      infoNotification(locale.TOO_SHORT_SEARCH_QUERY);
+    }
   };
 
   render() {
@@ -45,11 +54,7 @@ export class Search extends Component {
     const {value} = this.state;
 
     return (
-      <form
-        className={classes.root}
-        onSubmit={this.handleSubmit}
-        noValidate
-      >
+      <form className={classes.root} onSubmit={this.handleSubmit} noValidate>
         <div className={classes.container}>
           <FormControl className={classes.inputContainer}>
             <TextField
@@ -112,6 +117,7 @@ Search.propTypes = {
   classes: object.isRequired,
   fetchArticles: func.isRequired,
   addToFavourites: func.isRequired,
+  infoNotification: func.isRequired,
 };
 
 export default withStyles(styles)(Search);
