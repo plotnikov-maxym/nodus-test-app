@@ -24,7 +24,6 @@ module.exports = {
     "class-methods-use-this": "off",
     "no-param-reassign": "off",
     "no-shadow": ["error", {"allow": ["push", "goBack", "fields"]}],
-    "no-console": "off",
     "import/newline-after-import": "off",
     "import/no-named-as-default": "off",
     "import/extensions": "off",

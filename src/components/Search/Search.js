@@ -18,7 +18,6 @@ export class Search extends Component {
 
   handleAddToFavorites = () => {
     const {value} = this.state;
-    console.log(value);
     if (value.length > 3) {
       const {addToFavourites} = this.props;
       const id = value.replace(/[^\w\s]/gi, "").replace(" ", "_");

@@ -15,7 +15,7 @@ exports[`<FavouritesItems /> FavouritesItems component matches snapshot if no Fa
     <p
       className="MuiTypography-root-1 MuiTypography-body1-10 MuiTypography-gutterBottom-28"
     >
-      You don't have any favourites at the moment. You can add them at anytime.
+      You don't have any favourites at the moment. You can add them at any time.
     </p>
   </div>
 </div>
