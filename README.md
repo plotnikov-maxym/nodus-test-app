@@ -18,7 +18,7 @@ Uses `Material-UI` for styling and `node-ncbi` for fetching and parsing date fro
 - classnames: `^2.2.6`
 - Eslint with plugins
 
-###Tests:
+### Tests:
 - Jest
 - react-test-renderer: `^16.8.6`
 - enzyme: `^3.9.0`
