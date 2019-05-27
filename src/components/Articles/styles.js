@@ -8,13 +8,15 @@ export const styles = ({spacing: {unit}, palette}) => ({
   flexRow: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-end",
+    justifyItems: "flex-start",
   },
   flexColumn: {
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
     padding: unit * 2,
+    flexBasis: "90%",
   },
   card: {
     marginBottom: unit,
@@ -25,5 +27,9 @@ export const styles = ({spacing: {unit}, palette}) => ({
   },
   date: {
     color: palette.grey.A200,
+  },
+  detailsBtn: {
+    flexBasis: "10%",
+    margin: unit * 2,
   },
 });

@@ -1,5 +1,5 @@
 import articlesReducer from "../articles";
-import {GET_ARTICLES} from "../../actions/types";
+import {GET_ARTICLES, ADD_ABSTRACT} from "../../actions/types";
 
 const fakeState = {test: "fakeState"};
 
@@ -30,6 +30,20 @@ describe("Articles Reducer", () => {
       test: "fakeState",
       list: data,
     });
+  });
+
+  it("returns the expected state for ADD_ABSTRACT action", () => {
+    const data = {abstract: "Abstract", index: 0};
+    const stateItem = {pmid: 111, authors: "Smith A.A."};
+    const fakeListState = {list: [stateItem]};
+    const newState = articlesReducer(fakeListState, {
+      type: ADD_ABSTRACT,
+      value: data,
+    });
+    const expected = {
+      list: [{pmid: 111, authors: "Smith A.A.", abstract: "Abstract"}],
+    };
+    expect(newState).toEqual(expected);
   });
 
   const getArticlesList = () => ["2313123", "adasddad"];

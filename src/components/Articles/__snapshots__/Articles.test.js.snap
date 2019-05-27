@@ -23,28 +23,59 @@ exports[`<Articles /> Articles component matches snapshot with Articles provided
       className="MuiPaper-root-37 MuiPaper-elevation2-41 MuiPaper-rounded-38 Articles-card-198"
     >
       <div
-        className="Articles-flexColumn-197"
+        className="Articles-flexRow-196"
       >
-        <h6
-          className="MuiTypography-root-1 MuiTypography-h6-18 MuiTypography-gutterBottom-28"
+        <div
+          className="Articles-flexColumn-197"
         >
-          Effect of Preoperative Opioid Use on Adversplasty in the United States
-        </h6>
-        <h6
-          className="MuiTypography-root-1 MuiTypography-subtitle1-19"
-          display="inline"
+          <h6
+            className="MuiTypography-root-1 MuiTypography-h6-18 MuiTypography-gutterBottom-28"
+          >
+            Effect of Preoperative Opioid Use on Adversplasty in the United States
+          </h6>
+          <h6
+            className="MuiTypography-root-1 MuiTypography-subtitle1-19"
+            display="inline"
+          >
+            Blevins Peratikos M, Weeks HL, Pisansky AJB, Yong RJ, Stringer EA
+          </h6>
+          <h6
+            className="MuiTypography-root-1 MuiTypography-subtitle2-20"
+            display="inline"
+          >
+            Pain Med
+             (
+            2019 May 23
+            )
+          </h6>
+        </div>
+        <button
+          className="MuiButtonBase-root-90 MuiButton-root-64 MuiButton-text-66 MuiButton-textPrimary-67 MuiButton-flat-69 MuiButton-flatPrimary-70"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex="0"
+          type="button"
         >
-          Blevins Peratikos M, Weeks HL, Pisansky AJB, Yong RJ, Stringer EA
-        </h6>
-        <h6
-          className="MuiTypography-root-1 MuiTypography-subtitle2-20"
-          display="inline"
-        >
-          Pain Med
-           (
-          2019 May 23
-          )
-        </h6>
+          <span
+            className="MuiButton-label-65"
+          >
+            Details
+          </span>
+          <span
+            className="MuiTouchRipple-root-93"
+          />
+        </button>
       </div>
     </div>
   </div>

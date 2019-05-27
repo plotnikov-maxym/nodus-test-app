@@ -1,8 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import {extend} from "underscore";
-import {Articles} from "./Articles";
 import {createShallow} from "@material-ui/core/test-utils";
+import {Articles} from "./Articles";
+import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import {locale} from "../../constants/locales";
@@ -44,6 +45,18 @@ describe("<Articles />", () => {
     });
   });
 
+  it("renders Details button and calls fetchAbstract function", async () => {
+    const fetchAbstract = jest.fn();
+    const wrapper = await getComponent({fetchAbstract});
+    const {articles} = getMockProps();
+    const addButton = wrapper
+      .find(Button)
+      .findWhere(btn => btn.prop("variant") === "text");
+    expect(addButton).toExist();
+    addButton.simulate("click");
+    await expect(fetchAbstract).toHaveBeenCalledWith(articles[0].pmid, 0);
+  });
+
   const getComponent = props => {
     const parsedProps = extend(getMockProps(), props);
 
@@ -83,5 +96,6 @@ describe("<Articles />", () => {
           "Effect of Preoperative Opioid Use on Adversplasty in the United States",
       },
     ],
+    fetchAbstract: () => {},
   });
 });
