@@ -77,12 +77,17 @@ describe("<FavouritesItems />", () => {
         searchQuery: "Search Query",
       };
       const wrapper = await getComponent({favourites, fetchArticles});
+      const subButton = wrapper
+        .find(Button)
+        .findWhere(btn => btn.prop("type") === "submit");
+      expect(subButton).toExist();
+      expect(subButton.prop("disabled")).toBe(true);
       wrapper.setState({value: favourites.searchQuery});
       wrapper.update();
       const submitButton = wrapper
         .find(Button)
         .findWhere(btn => btn.prop("type") === "submit");
-      expect(submitButton).toExist();
+      expect(submitButton.prop("disabled")).toBe(false);
       const form = wrapper.find("form");
       form.prop("onSubmit")({
         preventDefault: () => {},
