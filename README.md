@@ -25,3 +25,10 @@ Uses `Material-UI` for styling and `node-ncbi` for fetching and parsing date fro
 - enzyme-matchers: `^7.0.2`
 - jest-enzyme: `^7.0.2`
 
+
+## How to start
+
+Please use `yarn` 
+- `yarn install` - to install all the dependencies
+- `yarn start`  - to start development server
+- `yarn text`  - to run tests
