@@ -8,11 +8,12 @@ import {withStyles} from "@material-ui/core/styles";
 import {locale} from "../../constants/locales";
 
 export const Articles = ({classes, articles, fetchAbstract}) => {
+  const isFetched = localStorage.getItem("isFetched");
   if (!articles.length) {
     return (
       <div className={classes.root}>
         <Typography variant="button" gutterBottom>
-          {locale.NO_MATCHES}
+          {isFetched ? locale.NO_MATCHES : locale.ENTER_QUERY}
         </Typography>
       </div>
     );

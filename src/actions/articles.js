@@ -15,6 +15,7 @@ export const addAbstract = abstract => ({
 
 export const fetchArticles = (query, range = [0, 10]) => async dispatch => {
   dispatch(showLoader());
+  localStorage.setItem("isFetched", true);
   let results;
   try {
     const {papers} = await pubmed.search(query, ...range);

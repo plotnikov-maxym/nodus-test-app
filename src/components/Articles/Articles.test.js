@@ -41,7 +41,12 @@ describe("<Articles />", () => {
       const fallbackText = wrapper
         .find(Typography)
         .findWhere(text => text.prop("variant") === "button");
-      expect(fallbackText.props().children).toEqual(locale.NO_MATCHES);
+      const isFetched = localStorage.getItem("isFetched");
+      if (isFetched) {
+        expect(fallbackText.props().children).toEqual(locale.NO_MATCHES);
+      } else {
+        expect(fallbackText.props().children).toEqual(locale.ENTER_QUERY);
+      }
     });
   });
 

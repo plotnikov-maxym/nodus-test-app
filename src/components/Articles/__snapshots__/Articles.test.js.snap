@@ -7,7 +7,7 @@ exports[`<Articles /> Articles component matches snapshot if no Articles provide
   <span
     className="MuiTypography-root-1 MuiTypography-button-12 MuiTypography-gutterBottom-28"
   >
-    No matches found.
+    Please enter Your query to search.
   </span>
 </div>
 `;

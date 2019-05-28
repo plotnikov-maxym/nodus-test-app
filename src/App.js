@@ -14,6 +14,10 @@ import "./App.css";
 
 const {store, persistor} = persistStore();
 
+window.onbeforeunload = () => {
+  return localStorage.removeItem("isFetched");
+};
+
 function App() {
   return (
     <Provider store={store}>
