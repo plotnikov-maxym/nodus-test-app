@@ -31,4 +31,4 @@ Uses `Material-UI` for styling and `node-ncbi` for fetching and parsing date fro
 Please use `yarn` 
 - `yarn install` - to install all the dependencies
 - `yarn start`  - to start development server
-- `yarn text`  - to run tests
+- `yarn test`  - to run tests
